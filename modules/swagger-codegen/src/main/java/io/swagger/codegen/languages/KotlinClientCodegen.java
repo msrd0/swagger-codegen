@@ -149,6 +149,7 @@ public class KotlinClientCodegen extends DefaultCodegen implements CodegenConfig
         typeMapping.put("number", "java.math.BigDecimal");
         typeMapping.put("date-time", "java.time.LocalDateTime");
         typeMapping.put("date", "java.time.LocalDate");
+        typeMapping.put("time", "java.time.LocalTime");
         typeMapping.put("file", "java.io.File");
         typeMapping.put("array", "kotlin.Array");
         typeMapping.put("list", "kotlin.Array");
@@ -157,6 +158,7 @@ public class KotlinClientCodegen extends DefaultCodegen implements CodegenConfig
         typeMapping.put("binary", "kotlin.Array<kotlin.Byte>");
         typeMapping.put("Date", "java.time.LocalDate");
         typeMapping.put("DateTime", "java.time.LocalDateTime");
+        typeMapping.put("Time", "java.time.LocalTime");
 
         instantiationTypes.put("array", "arrayOf");
         instantiationTypes.put("list", "arrayOf");
