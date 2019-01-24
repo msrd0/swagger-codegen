@@ -92,8 +92,12 @@ public class RustClientCodegen extends DefaultCodegen implements CodegenConfig {
         typeMapping.put("boolean", "bool");
         typeMapping.put("string", "String");
         typeMapping.put("UUID", "String");
-        typeMapping.put("date", "string");
-        typeMapping.put("DateTime", "String");
+        typeMapping.put("date", "chrono::NaiveDate");
+        typeMapping.put("Date", "chrono::NaiveDate");
+        typeMapping.put("time", "chrono::NaiveTime");
+        typeMapping.put("Time", "chrono::NaiveTime");
+        typeMapping.put("date-time", "chrono::DateTime<chrono::offset::Utc>");
+        typeMapping.put("DateTime", "chrono::DateTime<chrono::offset::Utc>");
         typeMapping.put("password", "String");
         // TODO(farcaller): map file
         typeMapping.put("file", "File");
@@ -101,8 +105,10 @@ public class RustClientCodegen extends DefaultCodegen implements CodegenConfig {
         typeMapping.put("ByteArray", "String");
         typeMapping.put("object", "Value");
 
-        // no need for rust
-        //importMapping = new HashMap<String, String>();
+        importMapping = new HashMap<String, String>();
+        importMapping.put("NaiveDate", "chrono::NaiveDate");
+        importMapping.put("NaiveTime", "chrono::NaiveTime");
+        importMapping.put("DateTime<Utc>", "chrono::{DateTime, offset::Utc}");
 
         cliOptions.clear();
         cliOptions.add(new CliOption(CodegenConstants.PACKAGE_NAME, "Rust package name (convention: lowercase).")
