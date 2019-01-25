@@ -91,7 +91,8 @@ public class RustClientCodegen extends DefaultCodegen implements CodegenConfig {
         typeMapping.put("double", "f64");
         typeMapping.put("boolean", "bool");
         typeMapping.put("string", "String");
-        typeMapping.put("UUID", "String");
+        typeMapping.put("uuid", "uuid::Uuid");
+        typeMapping.put("UUID", "uuid::Uuid");
         typeMapping.put("date", "chrono::NaiveDate");
         typeMapping.put("Date", "chrono::NaiveDate");
         typeMapping.put("time", "chrono::NaiveTime");
